@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (2.0.2)
+  - SSKeychain (1.2.3)
+  - Starscream (1.0.1)
+  - SwiftyJSON (2.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 2.0.0)
+  - SSKeychain (~> 1.2.3)
+  - Starscream (~> 1.0.1)
+  - SwiftyJSON (~> 2.3.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  Starscream: 7b731637cd167ed5a059331f52c0254b1aa69095
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
+
+COCOAPODS: 0.38.2
