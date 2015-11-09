@@ -20,7 +20,7 @@ class FetchServersService {
     }
     
     func fetchServers() {
-        session.currentSession().request(.GET, "\(AppController.currentURL)/server/all")
+        session.currentSession().request(.GET, "\(session.currentBaseHttpUrl)/server/all")
             .responseJSON { request, response, result in
                 guard let strongDelegate = self.delegate else {
                     print("delegate not set, bailing data parsing")

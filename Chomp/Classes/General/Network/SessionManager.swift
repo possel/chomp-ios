@@ -7,10 +7,53 @@ import Foundation
 import Alamofire
 
 class SessionManager: AuthManagerListener {
-    weak var delegate: SessionManagerListener?
+    var currentDomain = ""
+    var currentUser = ""
+    var currentBaseUrl = ""
+    var currentBaseHttpUrl: String {
+        get {
+            return "http://\(currentBaseUrl)"
+        }
+    }
 
+    var currentBaseWebsocketUrl: String {
+        get {
+            return "ws://\(currentBaseUrl)"
+        }
+    }
+
+    private let configuration: ChompConfiguration
+
+    private var listeners: [SessionManagerListener] = []
     private var authManager: AuthManager?
     private var session: Alamofire.Manager?
+
+    init(configuration: ChompConfiguration) {
+        self.configuration = configuration
+
+        self.currentDomain = configuration.apiDomain
+        self.currentUser = configuration.apiUser
+    }
+
+    func addListener(listener: SessionManagerListener) {
+        listeners.append(listener)
+    }
+
+    func removeListener(listener: SessionManagerListener) {
+        listeners = listeners.filter({ $0 !== listener })
+    }
+
+    func createNewSession(domain: String, port: String, user: String, password: String) -> Bool {
+        configuration.apiDomain = domain
+        configuration.apiPort = port
+        configuration.apiUser = user
+
+        currentDomain = domain
+        currentUser = user
+        constructBaseUrlFromDomainAndPort(domain, port: port)
+
+        return self.authManager?.requestLoginToken(user, password: password) ?? false
+    }
 
     func reconfigureSession(authManager: AuthManager) {
         self.authManager = authManager
@@ -48,19 +91,27 @@ class SessionManager: AuthManagerListener {
         return newSession
     }
 
+    private func constructBaseUrlFromDomainAndPort(domain: String, port: String) {
+        currentBaseUrl = "\(domain):\(port)"
+    }
+
     func onRequestFailedDueToAuthentication() {
         authManager?.clearUserTokens()
 
-        self.delegate?.onSessionInvalidated()
+        onAuthFailed()
     }
 
     // MARK: AuthManagerListener
 
     func onAuthSucceeded() {
-        delegate?.onNewSession()
+        for listener in listeners {
+            listener.onNewSession()
+        }
     }
 
     func onAuthFailed() {
-        delegate?.onSessionInvalidated()
+        for listener in listeners {
+            listener.onSessionInvalidated()
+        }
     }
 }

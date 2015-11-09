@@ -27,7 +27,7 @@ class SendLineService {
                 "content": line
         ]
 
-        session.currentSession().request(.POST, "\(AppController.currentURL)/line", parameters: parameters, encoding: .JSON)
+        session.currentSession().request(.POST, "\(session.currentBaseHttpUrl)/line", parameters: parameters, encoding: .JSON)
             .responseJSON { request, response, result in
                 guard let strongDelegate = self.delegate else {
                     print("delegate not set, bailing data parsing")

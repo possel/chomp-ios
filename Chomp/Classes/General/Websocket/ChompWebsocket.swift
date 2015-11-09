@@ -31,13 +31,13 @@ class ChompWebsocket: WebSocketDelegate, FetchLinesServiceListener {
         listeners = listeners.filter({ $0 !== listener })
     }
     
-    func connectToURL(hostname: String, port: String) {
+    func connect() {
         if let socket = self.socket {
             socket.disconnect()
             self.socket = nil
         }
         
-        let url = NSURL(string: "ws://\(hostname):\(port)/push")!
+        let url = NSURL(string: "\(session.currentBaseWebsocketUrl)/push")!
         
         self.socket = WebSocket(url: url)
 

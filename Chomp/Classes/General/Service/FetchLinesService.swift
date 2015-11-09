@@ -22,12 +22,12 @@ class FetchLinesService {
     }
     
     func fetchLine(line: Int) {
-        let requestURL = "\(AppController.currentURL)/line?id=\(line)"
+        let requestURL = "\(session.currentBaseHttpUrl)/line?id=\(line)"
         doRequest(requestURL)
     }
     
     func fetchLastLines(numberOfLines: Int) {
-        let requestURL = "\(AppController.currentURL)/line?last=\(numberOfLines)&buffer=\(self.buffer)"
+        let requestURL = "\(session.currentBaseHttpUrl)/line?last=\(numberOfLines)&buffer=\(self.buffer)"
         doRequest(requestURL)
     }
     

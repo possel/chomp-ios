@@ -1,7 +1,4 @@
 //
-//  FetchUserInteractor
-//  Chomp
-//
 //  Created by Sky Welch on 03/10/2015.
 //  Copyright © 2015 Sky Welch. All rights reserved.
 //
@@ -20,7 +17,7 @@ class FetchUsersService {
     }
     
     func fetchUser(id: String) {
-        session.currentSession().request(.GET, "\(AppController.currentURL)/user/\(id)")
+        session.currentSession().request(.GET, "\(session.currentBaseHttpUrl)/user/\(id)")
             .responseJSON { request, response, result in
                 guard let strongDelegate = self.delegate else {
                     print("delegate not set, bailing data parsing")

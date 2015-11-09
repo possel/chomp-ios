@@ -49,6 +49,7 @@
 		1BD21E2176854B27A70BC4C9 /* AuthServiceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2135BB0658C7E1E45C843 /* AuthServiceListener.swift */; };
 		1BD21EB15457EC9CD48A4DFF /* SendLineServiceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD218A36C20901A4C43AAE3 /* SendLineServiceListener.swift */; };
 		1BD21F751F1104773B8E464D /* BufferInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD211B4BACE7FD4A10F02C3 /* BufferInteractor.swift */; };
+		1BD21FC594E75D349D18C84C /* ChompConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD21E691F1B6AEE45352884 /* ChompConfiguration.swift */; };
 		33657E301BC859C2005813FA /* RootNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33657E2F1BC859C2005813FA /* RootNavigationManager.swift */; };
 		33657E321BC9311C005813FA /* ChompViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33657E311BC9311C005813FA /* ChompViewController.swift */; };
 		33B6F7111BC0419F004C8B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B6F7101BC0419F004C8B7C /* AppDelegate.swift */; };
@@ -108,6 +109,7 @@
 		1BD21DAF96CE4D225314C5FF /* ServerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerEntity.swift; sourceTree = "<group>"; };
 		1BD21DD023FC3DFE47D565E9 /* JsonTypedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonTypedArray.swift; sourceTree = "<group>"; };
 		1BD21E0EEEA0D52B0D6C0F28 /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		1BD21E691F1B6AEE45352884 /* ChompConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChompConfiguration.swift; sourceTree = "<group>"; };
 		1BD21E7EBA4F66F75D7A049B /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		1BD21EB0358931349AD57C4B /* SessionManagerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManagerListener.swift; sourceTree = "<group>"; };
 		1BD21F39C2C39B35E2D8F112 /* FetchBuffersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBuffersService.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BD21094D900608322D581B9 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1BD21E691F1B6AEE45352884 /* ChompConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		1BD211167A1471E51958C99A /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 				1BD21FFE0020216867BFEC6A /* Auth */,
 				1BD211167A1471E51958C99A /* Network */,
 				1BD213B8A39579551B682576 /* Utility */,
+				1BD21094D900608322D581B9 /* Configuration */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -554,6 +565,7 @@
 				1BD215BC3C3EEF35C97C112B /* AuthManagerListener.swift in Sources */,
 				1BD21B54544EAED6A9B6B0C5 /* JsonDecodable.swift in Sources */,
 				1BD218EFBD2DAB6C8B58E1E5 /* JsonTypedArray.swift in Sources */,
+				1BD21FC594E75D349D18C84C /* ChompConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

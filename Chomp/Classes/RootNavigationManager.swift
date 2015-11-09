@@ -44,6 +44,6 @@ class RootNavigationManager {
     }
     
     func constructLoginViewController() -> LoginViewController {
-        return LoginViewController(authManager: self.authManager)
+        return LoginViewController(session: session)
     }
 }

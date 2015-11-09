@@ -9,11 +9,8 @@
 import UIKit
 
 public class AppController: SessionManagerListener {
-    static var currentDomain = "127.0.0.1"
-    static var currentPort = "8081"
-    static var currentURL = ""
-    
     let rootNavigationManager: RootNavigationManager
+    let configuration: ChompConfiguration
     let session: SessionManager
     let authManager: AuthManager
     let websocket: ChompWebsocket
@@ -21,7 +18,8 @@ public class AppController: SessionManagerListener {
     var window: UIWindow?
     
     init() {
-        let session = SessionManager()
+        let configuration = ChompConfiguration()
+        let session = SessionManager(configuration: configuration)
         let authManager = AuthManager(session: session)
         let websocket = ChompWebsocket(session: session, authManager: authManager)
         let rootNavigationManager = RootNavigationManager(authManager: authManager, session: session, websocket: websocket)
@@ -29,20 +27,17 @@ public class AppController: SessionManagerListener {
         session.reconfigureSession(authManager)
         authManager.delegate = session
 
+        self.configuration = configuration
         self.authManager = authManager
         self.session = session
         self.websocket = websocket
         self.rootNavigationManager = rootNavigationManager
 
-        AppController.constructURLFromDomainAndPort("127.0.0.1", port: "8081")
-
-        session.delegate = self
+        session.addListener(self)
     }
-    
-    static func constructURLFromDomainAndPort(domain: String, port: String) {
-        AppController.currentDomain = domain
-        AppController.currentPort = port
-        AppController.currentURL = "http://\(AppController.currentDomain):\(AppController.currentPort)"
+
+    deinit {
+        session.removeListener(self)
     }
 
     // MARK: SessionManagerListener

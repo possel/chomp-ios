@@ -20,7 +20,7 @@ class FetchBuffersService {
     }
     
     func fetchBuffers() {
-        session.currentSession().request(.GET, "\(AppController.currentURL)/buffer/all")
+        session.currentSession().request(.GET, "\(session.currentBaseHttpUrl)/buffer/all")
             .responseJSON { request, response, result in
                 guard let strongDelegate = self.delegate else {
                     print("delegate not set, bailing data parsing")

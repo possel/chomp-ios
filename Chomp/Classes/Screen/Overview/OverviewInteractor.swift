@@ -24,7 +24,7 @@ class OverviewInteractor: FetchServersServiceListener, FetchBuffersServiceListen
         self.websocket = websocket
 
         print("OverviewInteractor telling websocket to connect")
-        websocket.connectToURL(AppController.currentDomain, port: AppController.currentPort)
+        websocket.connect()
     }
 
     func loadOverview() {

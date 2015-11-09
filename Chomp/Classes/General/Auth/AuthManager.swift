@@ -59,7 +59,7 @@ class AuthManager: AuthServiceListener {
 
     func constructAuthCookie(token: String) -> NSHTTPCookie {
         let cookieProperties = [
-            NSHTTPCookieDomain: AppController.currentDomain,
+            NSHTTPCookieDomain: session.currentDomain,
             NSHTTPCookiePath: "/",
             NSHTTPCookieName: "token",
             NSHTTPCookieValue: token,
@@ -81,7 +81,7 @@ class AuthManager: AuthServiceListener {
     }
 
     private func cookiesForAPI() -> [NSHTTPCookie] {
-        if let cookies = self.cookieStorage.cookiesForURL(NSURL(string: "\(AppController.currentURL)/")!) {
+        if let cookies = self.cookieStorage.cookiesForURL(NSURL(string: "\(session.currentBaseHttpUrl)/")!) {
             print(cookies)
             return cookies
         }

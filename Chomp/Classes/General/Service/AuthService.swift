@@ -26,7 +26,7 @@ class AuthService {
             "password": password
         ]
         
-        session.currentSession().request(.POST, "\(AppController.currentURL)/session", parameters: parameters, encoding: .JSON)
+        session.currentSession().request(.POST, "\(session.currentBaseHttpUrl)/session", parameters: parameters, encoding: .JSON)
             .responseJSON { request, response, result in
                 guard let strongDelegate = self.delegate else {
                     print("delegate not set, bailing data parsing")
@@ -77,7 +77,7 @@ class AuthService {
     }
 
     private func cookiesForAPI() -> [NSHTTPCookie] {
-        if let cookies = self.cookieStorage.cookiesForURL(NSURL(string: "\(AppController.currentURL)/")!) {
+        if let cookies = self.cookieStorage.cookiesForURL(NSURL(string: "\(session.currentBaseHttpUrl)/")!) {
             print(cookies)
             return cookies
         }
