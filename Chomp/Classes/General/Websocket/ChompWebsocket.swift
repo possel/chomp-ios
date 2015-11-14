@@ -37,6 +37,10 @@ class ChompWebsocket: WebSocketDelegate, FetchLinesServiceListener {
             self.socket = nil
         }
         
+        if session.currentBaseUrl.isEmpty {
+            return
+        }
+        
         let url = NSURL(string: "\(session.currentBaseWebsocketUrl)/push")!
         
         self.socket = WebSocket(url: url)
@@ -59,6 +63,7 @@ class ChompWebsocket: WebSocketDelegate, FetchLinesServiceListener {
     
     func disconnect() {
         self.socket?.disconnect()
+        self.socket = nil
     }
     
     // MARK: WebSocketDelegate

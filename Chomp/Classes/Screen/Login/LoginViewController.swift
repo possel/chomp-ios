@@ -31,6 +31,8 @@ class LoginViewController: ChompViewController, SessionManagerListener {
         print("LoginViewController viewDidLoad")
         
         self.title = "Chomp"
+        
+        Styling.styleActionButton(loginButton)
 
         serverTextField.text = session.currentDomain
         usernameTextField.text = session.currentUser

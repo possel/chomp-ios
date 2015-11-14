@@ -16,6 +16,12 @@ class Styling {
     }
     
     class func brandBlueColor() -> UIColor {
-        return UIColor(red: 66.0 / 255.0, green: 165.0 / 255.0, blue: 245.0 / 255.0, alpha: 0.0)
+        return UIColor(red: 66.0 / 255.0, green: 165.0 / 255.0, blue: 245.0 / 255.0, alpha: 1.0)
+    }
+    
+    class func styleActionButton(button: UIButton) {
+        button.backgroundColor = brandBlueColor()
+        button.tintColor = .whiteColor()
+        button.layer.cornerRadius = 5
     }
 }
