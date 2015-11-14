@@ -48,11 +48,16 @@ class SessionManager: AuthManagerListener {
         configuration.apiPort = port
         configuration.apiUser = user
 
-        currentDomain = domain
-        currentUser = user
-        constructBaseUrlFromDomainAndPort(domain, port: port)
+        setCurrentSessionDetails(domain, port: port, user: user)
 
         return self.authManager?.requestLoginToken(user, password: password) ?? false
+    }
+    
+    func setCurrentSessionDetails(domain: String, port: String, user: String) {
+        currentDomain = domain
+        currentUser = user
+
+        constructBaseUrlFromDomainAndPort(domain, port: port)
     }
 
     func reconfigureSession(authManager: AuthManager) {
@@ -87,6 +92,8 @@ class SessionManager: AuthManagerListener {
 
         let newSession = Alamofire.Manager(configuration: cfg)
         session = newSession
+        
+        setCurrentSessionDetails(configuration.apiDomain, port: configuration.apiPort, user: configuration.apiUser)
 
         return newSession
     }
