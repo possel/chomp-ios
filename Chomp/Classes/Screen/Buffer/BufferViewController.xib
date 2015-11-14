@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BufferViewController" customModule="Chomp" customModuleProvider="target">
@@ -9,7 +9,7 @@
                 <outlet property="bufferSendTextField" destination="xps-gN-BSb" id="ZaQ-YR-ly6"/>
                 <outlet property="bufferSendTextFieldBottomConstraint" destination="2fJ-sz-spN" id="f66-GE-ezR"/>
                 <outlet property="bufferSendTextFieldHeightConstraint" destination="IwE-o2-Pee" id="Jet-Lx-QsA"/>
-                <outlet property="bufferTextView" destination="cem-sA-bFZ" id="xUF-39-psI"/>
+                <outlet property="bufferTable" destination="Rxc-st-fwP" id="MD5-Ny-JUa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,14 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cem-sA-bFZ" userLabel="Buffer Text View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="631"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type something..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xps-gN-BSb">
                     <rect key="frame" x="0.0" y="631" width="375" height="36"/>
                     <animations/>
@@ -36,25 +28,24 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                 </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rxc-st-fwP" userLabel="Buffer Table">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <animations/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="xps-gN-BSb" secondAttribute="bottom" id="2fJ-sz-spN"/>
-                <constraint firstItem="xps-gN-BSb" firstAttribute="top" secondItem="cem-sA-bFZ" secondAttribute="bottom" id="3Z2-qC-dOs"/>
-                <constraint firstAttribute="trailing" secondItem="cem-sA-bFZ" secondAttribute="trailing" id="GRV-g0-kJw"/>
-                <constraint firstItem="xps-gN-BSb" firstAttribute="top" secondItem="cem-sA-bFZ" secondAttribute="bottom" id="UiV-zN-4uo"/>
-                <constraint firstItem="cem-sA-bFZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aCa-8w-wzl"/>
+                <constraint firstItem="xps-gN-BSb" firstAttribute="top" secondItem="Rxc-st-fwP" secondAttribute="bottom" constant="8" id="E0n-XH-xUn"/>
+                <constraint firstItem="Rxc-st-fwP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="O3r-6n-1Qw"/>
                 <constraint firstAttribute="trailing" secondItem="xps-gN-BSb" secondAttribute="trailing" id="are-Yd-C4m"/>
-                <constraint firstItem="cem-sA-bFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mVG-0K-1wb"/>
+                <constraint firstAttribute="trailing" secondItem="Rxc-st-fwP" secondAttribute="trailing" id="lCr-rA-4p1"/>
                 <constraint firstItem="xps-gN-BSb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qux-r4-acK"/>
+                <constraint firstItem="Rxc-st-fwP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tLO-OO-1FU"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="3Z2-qC-dOs"/>
-                </mask>
-            </variation>
         </view>
     </objects>
 </document>

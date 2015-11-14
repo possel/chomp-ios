@@ -9,7 +9,5 @@
 import Foundation
 
 protocol BufferView {
-    func addLineToView(line: LineEntity)
-    
     func clearLineInput()
 }

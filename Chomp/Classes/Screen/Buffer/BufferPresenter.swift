@@ -15,6 +15,8 @@ class BufferPresenter {
     private let session: SessionManager
 
     var interactor: BufferInteractor?
+    var tableController: BufferTableController?
+    var lines: [LineEntity] = []
     
     required init(view: BufferView, websocket: ChompWebsocket, buffer: BufferEntity, session: SessionManager) {
         self.view = view
@@ -37,14 +39,35 @@ class BufferPresenter {
     }
 
     func loadedLines(lines: [LineEntity]) {
-        for line in lines.reverse() {
-            self.view.addLineToView(line)
-        }
+        let reversedLines: [LineEntity] = lines.reverse()
+        self.lines.appendContentsOf(reversedLines)
+
+        tableController?.reloadData()
+        tableController?.scrollToBottom()
     }
     
     func sendLineTapped(line: String) {
         interactor?.sendLine(line)
         
         view.clearLineInput()
+    }
+}
+
+extension BufferPresenter: BufferTableControllerDelegate {
+    func numberOfItems(section: Int) -> Int {
+        return self.lines.count
+    }
+
+    func itemAtIndexPath(indexPath: NSIndexPath) -> (Int, String, String)? {
+        if indexPath.row >= lines.count {
+            return nil
+        }
+        
+        let line = lines[indexPath.row]
+        return (indexPath.row, line.nick, line.content)
+    }
+
+    func onBufferRowTapped(id: Int) {
+        print("tapped buffer row \(id)_")
     }
 }

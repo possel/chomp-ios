@@ -10,14 +10,15 @@ import UIKit
 
 class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate {
     var presenter: BufferPresenter?
+    var tableController: BufferTableController?
     
     var currentText = ""
     let buffer: BufferEntity
     
-    @IBOutlet weak var bufferTextView: UITextView!
     @IBOutlet weak var bufferSendTextField: UITextField!
     @IBOutlet weak var bufferSendTextFieldBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bufferSendTextFieldHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bufferTable: UITableView!
     
     init(user: User, session: SessionManager, websocket: ChompWebsocket, buffer: BufferEntity) {
         self.buffer = buffer
@@ -33,12 +34,13 @@ class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate
         super.viewDidLoad()
 
         self.title = self.buffer.name
-        self.styleViews()
         bufferSendTextField.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillDisappear:", name: UIKeyboardWillHideNotification, object: nil)
-        
+
+        setupTableView()
+
         presenter?.viewDidLoad()
     }
     
@@ -48,11 +50,6 @@ class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate
         NSNotificationCenter.defaultCenter().removeObserver(self)
         
         presenter?.viewWillDisappear()
-    }
-
-    func styleViews() {
-        self.bufferTextView.text = ""
-        self.bufferTextView.editable = false
     }
     
     func keyboardWillAppear(notification: NSNotification) {
@@ -69,27 +66,7 @@ class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate
             self.bufferSendTextFieldBottomConstraint.constant = 0
         })
     }
-    
-    // MARK: BufferView
 
-    func addLineToView(line: LineEntity) {
-        var lineToAdd = "\(line.nick): \(line.content)"
-        if !self.currentText.isEmpty {
-            lineToAdd = "\n" + lineToAdd
-        }
-        
-        let lineToAddString = lineToAdd as NSString
-        let lineToAddLength = lineToAddString.length
-        
-        let currentTextString = currentText as NSString
-        let currentLength = currentTextString.length
-
-        self.currentText += lineToAdd
-        self.bufferTextView.text = self.currentText
-        
-        self.bufferTextView.scrollRangeToVisible(NSMakeRange(currentLength, lineToAddLength))
-    }
-    
     // MARK: BufferSendTextField
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -100,5 +77,10 @@ class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate
     
     func clearLineInput() {
         bufferSendTextField.text = ""
+    }
+
+    func setupTableView() {
+        self.tableController = BufferTableController(tableView: self.bufferTable, delegate: self.presenter!)
+        self.presenter?.tableController = self.tableController
     }
 }

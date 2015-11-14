@@ -22,9 +22,6 @@ class OverviewInteractor: FetchServersServiceListener, FetchBuffersServiceListen
         self.presenter = presenter
         self.session = session
         self.websocket = websocket
-
-        print("OverviewInteractor telling websocket to connect")
-        websocket.connect()
     }
 
     func loadOverview() {
@@ -40,6 +37,9 @@ class OverviewInteractor: FetchServersServiceListener, FetchBuffersServiceListen
         FetchServersService(session: self.session, delegate: self).fetchServers()
         FetchBuffersService(session: self.session, delegate: self).fetchBuffers()
         FetchUsersService(session: self.session, delegate: self).fetchUser("all")
+        
+        print("OverviewInteractor telling websocket to connect")
+        websocket.connect()
     }
 
     func listenToWebsocket() {

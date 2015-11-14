@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="171" id="KGk-i7-Jjw" customClass="BufferTableViewCell" customModule="Chomp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="170"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="999" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Ay-GwX" userLabel="Content Label">
+                        <rect key="frame" x="126" y="0.0" width="243" height="67"/>
+                        <animations/>
+                        <string key="text">Label label label label label label label label label label label label label label label label label label label label label label</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" text="An IRC nickname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwE-9d-9gD">
+                        <rect key="frame" x="8" y="0.0" width="110" height="17"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="nVe-fk-7Xh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="3dC-Ay-GwX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9HJ-Uz-QuV"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3dC-Ay-GwX" secondAttribute="bottom" id="JQn-80-D0A"/>
+                    <constraint firstAttribute="trailing" secondItem="3dC-Ay-GwX" secondAttribute="trailing" constant="8" id="KVx-q3-XUW"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FwE-9d-9gD" secondAttribute="bottom" id="g56-7H-oAT"/>
+                    <constraint firstItem="FwE-9d-9gD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nhq-7f-cas"/>
+                    <constraint firstItem="FwE-9d-9gD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oS2-Xh-U1l"/>
+                    <constraint firstItem="3dC-Ay-GwX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="q4y-fU-MVw"/>
+                    <constraint firstItem="3dC-Ay-GwX" firstAttribute="leading" secondItem="FwE-9d-9gD" secondAttribute="trailing" constant="8" id="y2P-fS-yLA"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="g56-7H-oAT"/>
+                        <exclude reference="q4y-fU-MVw"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="contentLabel" destination="3dC-Ay-GwX" id="LjG-TV-MFX"/>
+                <outlet property="nicknameLabel" destination="FwE-9d-9gD" id="ie6-La-OYB"/>
+            </connections>
+            <point key="canvasLocation" x="518.5" y="444.5"/>
+        </tableViewCell>
+    </objects>
+</document>
