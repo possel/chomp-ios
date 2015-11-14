@@ -30,7 +30,7 @@ class LoginViewController: ChompViewController, SessionManagerListener {
         
         print("LoginViewController viewDidLoad")
         
-        self.title = "Chomp"
+        self.title = "Chomp 💬"
         
         Styling.styleActionButton(loginButton)
 

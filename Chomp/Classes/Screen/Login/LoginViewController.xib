@@ -51,7 +51,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="oKr-Lw-7v1"/>
                     </constraints>
-                    <state key="normal" title="Login"/>
+                    <state key="normal" title="Log in"/>
                     <connections>
                         <action selector="onLoginTouchUpInside:" destination="-1" eventType="touchUpInside" id="33z-dB-fot"/>
                     </connections>
