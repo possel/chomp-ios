@@ -14,18 +14,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="999" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Ay-GwX" userLabel="Content Label">
-                        <rect key="frame" x="126" y="0.0" width="243" height="67"/>
+                        <rect key="frame" x="140" y="0.0" width="229" height="67"/>
                         <animations/>
                         <string key="text">Label label label label label label label label label label label label label label label label label label label label label label</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" text="An IRC nickname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwE-9d-9gD">
-                        <rect key="frame" x="8" y="0.0" width="110" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" text="&lt;An IRC nickname&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwE-9d-9gD">
+                        <rect key="frame" x="8" y="0.0" width="128" height="17"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="nVe-fk-7Xh"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="nVe-fk-7Xh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -41,7 +41,7 @@
                     <constraint firstItem="FwE-9d-9gD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nhq-7f-cas"/>
                     <constraint firstItem="FwE-9d-9gD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oS2-Xh-U1l"/>
                     <constraint firstItem="3dC-Ay-GwX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="q4y-fU-MVw"/>
-                    <constraint firstItem="3dC-Ay-GwX" firstAttribute="leading" secondItem="FwE-9d-9gD" secondAttribute="trailing" constant="8" id="y2P-fS-yLA"/>
+                    <constraint firstItem="3dC-Ay-GwX" firstAttribute="leading" secondItem="FwE-9d-9gD" secondAttribute="trailing" constant="4" id="y2P-fS-yLA"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
