@@ -67,6 +67,9 @@ class BufferViewController: ChompViewController, BufferView, UITextFieldDelegate
         })
     }
 
+    @IBAction func handleBufferTableTap(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     // MARK: BufferSendTextField
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

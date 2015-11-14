@@ -32,6 +32,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <animations/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="9IX-F0-mSt" appends="YES" id="Ic2-cb-SNx"/>
+                    </connections>
                 </tableView>
             </subviews>
             <animations/>
@@ -47,5 +51,10 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
+        <tapGestureRecognizer id="9IX-F0-mSt">
+            <connections>
+                <action selector="handleBufferTableTap:" destination="-1" id="Nvh-pK-5BM"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
